@@ -1,13 +1,19 @@
 import React from 'react'
-import Border from './Border';
-
+import Border from './Border'
+import SingingButton from './SingingButton'
 
 const App = () => (
-  <div>
-    <ul>
-    <Border />
-    </ul>
-  </div>
+  <Border>
+    <SingingButton
+      label={'przycisk 1'}
+      sound={'lalalal'}
+      makeSound={() => alert('Im from makeSound')}
+    />
+    <SingingButton
+      label={'przycisk 2'}
+      sound={'kotki dwa!'}
+    />
+  </Border>
 )
 
 
