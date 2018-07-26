@@ -4,7 +4,7 @@ import Avatar from 'material-ui/Avatar'
 
 const User = (props) => {
 
-    const personData = props.user.name.last + ' ' + props.user.name.first
+    const personData = props.user.name.first + ' ' + props.user.name.last
 
     return (
         <ListItem

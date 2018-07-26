@@ -26,14 +26,29 @@ class FetchingRandomUsers extends React.Component {
             searchPhrase: event.target.value
         })
     }
-   
+
 
     render() {
         const userList = (
             this.state.randomUserData //jesli to bedzie nulem to nic nie wyswietli a za drugim renderem juz beda dane
             &&
             this.state.randomUserData
-                .filter(el => el.name.first.indexOf(this.state.searchPhrase)>0)
+                .map(user => (
+                    <User
+                        user={user}
+                        key={user.login.uuid}
+                    />
+                ))
+        )
+        const searchResults = (
+            this.state.randomUserData //jesli to bedzie nulem to nic nie wyswietli a za drugim renderem juz beda dane
+            &&
+            this.state.randomUserData
+                .filter(el => (
+                    (el.name.first + ' ' + el.name.last).indexOf(this.state.searchPhrase) !== -1
+                    ||
+                    el.email.indexOf(this.state.searchPhrase) !== -1
+                ))
                 .map(user => (
                     <User
                         user={user}
@@ -47,10 +62,13 @@ class FetchingRandomUsers extends React.Component {
         return (
             <div>
                 <PaperRefined>
-                    <Search 
-                       dupa={this.state.searchPhrase}
-                       mojaNazwaPropsa={this.searchPhraseChangeHandler}
+                    <Search
+                        dupa={this.state.searchPhrase}
+                        mojaNazwaPropsa={this.searchPhraseChangeHandler}
                     />
+                </PaperRefined>
+                <PaperRefined>
+                    {searchResults}
                 </PaperRefined>
                 <PaperRefined>
                     {userList}
