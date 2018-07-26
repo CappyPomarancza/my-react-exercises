@@ -1,6 +1,5 @@
 import React from 'react'
 import Forms from './Forms'
-import Task from './Task'
 import List from './List'
 
 class ToDo extends React.Component {

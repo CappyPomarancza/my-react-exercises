@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Route} from 'react-router-dom'
-import Dashboard from './Dashboard'
-import BasicComponents from './BasicComponents'
-import PassingParameters from './PassingParameters'
-import Counter from './Counter'
-import ToDo from './ToDo/ToDo';
-import Navigation from './Navigation'
+import Dashboard from './views/Dashboard'
+import BasicComponents from './views/BasicComponents'
+import PassingParameters from './views/PassingParameters'
+import Counter from './views/Counter'
+import ToDo from './views/ToDo/ToDo';
+import Navigation from './views/Navigation'
+import FetchingRandomUsers from './views/FetchingRandomUsers/FetchingRandomUsers'
 
 
 const App = () => (
@@ -18,8 +19,9 @@ const App = () => (
         <Route path={'/'} exact component={Dashboard} />
         <Route path={'/basic-components'} exatc component={BasicComponents} />
         <Route path={'/passing-parameters/:parameterName'} component={PassingParameters} />
-        <Route path={'/counter'} component={()=> <Counter number ={5}/>} />
+        <Route path={'/counter'} component={()=> <Counter number ={0}/>} />
         <Route path={'/todo'} component={ToDo} />
+        <Route path={'/FetchingRandomUsers'} component={FetchingRandomUsers} />
       </div>
     </Router>
   </div>
