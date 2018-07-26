@@ -16,7 +16,7 @@ const App = () => (
         <Navigation />
         <Route path={'/dashboard'} component={Dashboard} />
         <Route path={'/'} exact component={Dashboard} />
-        <Route path={'/basic-component'} exatc component={BasicComponents} />
+        <Route path={'/basic-components'} exatc component={BasicComponents} />
         <Route path={'/passing-parameters/:parameterName'} component={PassingParameters} />
         <Route path={'/counter'} component={()=> <Counter number ={5}/>} />
         <Route path={'/todo'} component={ToDo} />

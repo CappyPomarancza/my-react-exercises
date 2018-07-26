@@ -6,6 +6,7 @@ import { TextField } from 'material-ui';
 const Forms = (props) => (
     <PaperRefined>
         <TextField
+            fullWidth={true}
             onChange={props.onNewTaskTextChanged}
             type={"text"}
             //placeholder={'Wpisz Zadanie'}
@@ -15,6 +16,8 @@ const Forms = (props) => (
         <RaisedButton
             label={'Dodaj'}
             primary={true}
+            fullWidth={true}
+            onClick={props.onAddNewTaskClickHandler}
         />
     </PaperRefined>
 )
