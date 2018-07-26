@@ -1,4 +1,6 @@
 import React from 'react'
+import User from './User'
+import PaperRefined from '../Components/PaperRefined'
 
 
 class FetchingRandomUsers extends React.Component {
@@ -12,17 +14,26 @@ class FetchingRandomUsers extends React.Component {
             .then((response) => response.json())
             .then((dataFromResponse) => {
                 this.setState({
-                    randomUserData: dataFromResponse.response
+                    randomUserData: dataFromResponse.results
                 })
             })
     }
 
     render() {
         return (
-            <div>
-                {this.state.randomUserData ? this.state.randomUserData.results[0].name.first : 'Ładowanie'}{` `}
-                {this.state.randomUserData ? this.state.randomUserData.results[0].name.last : 'Cierpliwości'}
-        </div>)
+            <PaperRefined>
+                {
+                    this.state.randomUserData //jesli to bedzie nulem to nic nie wyswietli a za drugim renderem juz beda dane
+                    &&
+                    this.state.randomUserData
+                        .map(user => (
+                            <User
+                                user={user}
+                                key={user.login.uuid}
+                            />
+                        ))
+                }
+            </PaperRefined>)
 
     }
 }
