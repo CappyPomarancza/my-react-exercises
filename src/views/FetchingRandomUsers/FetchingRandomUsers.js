@@ -1,6 +1,7 @@
 import React from 'react'
 import User from './User'
 import PaperRefined from '../Components/PaperRefined'
+import Search from './Search';
 
 
 class FetchingRandomUsers extends React.Component {
@@ -21,6 +22,10 @@ class FetchingRandomUsers extends React.Component {
 
     render() {
         return (
+            <div>
+                <PaperRefined>
+                    <Search />
+                </PaperRefined>
             <PaperRefined>
                 {
                     this.state.randomUserData //jesli to bedzie nulem to nic nie wyswietli a za drugim renderem juz beda dane
@@ -33,8 +38,8 @@ class FetchingRandomUsers extends React.Component {
                             />
                         ))
                 }
-            </PaperRefined>)
-
+            </PaperRefined>
+            </div >)
     }
 }
 
