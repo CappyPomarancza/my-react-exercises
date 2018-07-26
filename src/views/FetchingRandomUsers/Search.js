@@ -4,7 +4,10 @@ import TextField from 'material-ui/TextField'
 const Search = (props)=>(
     <TextField 
         placeholder={'Search'}
-        onChange={()=>{}}
+        fullWidth={true}
+        onChange={props.mojaNazwaPropsa}
+        value={props.dupa}
+
     />
 )
 
